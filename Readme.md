@@ -11,7 +11,7 @@ docker build -t web-server -f Dockerfile .
 docker run -v ~/<working directory>/:/var/www -p 80:80 -t web-server
 ```
 
-### Просмотр запущенных сервисов
+### Просмотр запущенных процессов
 ```
 docker ps
 ```
