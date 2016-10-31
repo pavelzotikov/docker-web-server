@@ -18,6 +18,9 @@ RUN apt-get upgrade -y
 
 RUN apt-get install -y nano wget curl libapache2-mod-php5 php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache php5-redis php5-mongo supervisor nginx apache2 mysql-server phpmyadmin memcached redis-server mongodb
 
+RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+RUN apt-get install -y nodejs
+
 # create home dir
 # RUN mkdir /var/www/
 
