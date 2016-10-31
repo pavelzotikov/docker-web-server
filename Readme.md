@@ -1,14 +1,9 @@
 ### Описание
-Ubuntu + PHP-5.6 + Apache2 + + MySQL + PhpMyAdmin + Nginx + Memcached + MongoDB + Redis
+Ubuntu + Nginx + Apache2 + PHP-5.6 + MySQL + phpMyAdmin + Memcached + MongoDB + Redis + NodeJS.v7
 
-### Компиляция
+### Использование
 ```
-docker build -t web-server -f Dockerfile .
-```
-
-### Запуск
-```
-docker run -v ~/<working directory>/:/var/www -p 80:80 -t web-server
+docker pull pavelzotikov/local-webserver
 ```
 
 ### Просмотр запущенных процессов
