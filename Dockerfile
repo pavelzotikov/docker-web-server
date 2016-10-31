@@ -16,13 +16,7 @@ RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get install -y nano wget curl libapache2-mod-php5 php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache php5-redis php5-mongo supervisor nginx apache2 mysql-server phpmyadmin memcached redis-server mongodb
-
-RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-RUN apt-get install -y nodejs
-
-# create home dir
-# RUN mkdir /var/www/
+RUN apt-get install -y nano wget curl libapache2-mod-php5 php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache supervisor nginx apache2 mysql-server phpmyadmin memcached
 
 # nginx config
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
@@ -30,7 +24,6 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD nginx.conf /etc/nginx/sites-enabled/default
 
 # apache2 config
-# RUN echo "\nServerName 172.17.0.2;" >> /etc/apache2/httpd.conf
 RUN rm /etc/apache2/ports.conf
 ADD apache2-ports.conf /etc/apache2/ports.conf
 RUN rm /etc/apache2/sites-available/000-default.conf
@@ -40,9 +33,6 @@ ADD apache2.conf /etc/apache2/sites-enabled/default.conf
 # mysql config
 RUN echo "\nInclude /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 RUN sed -i "s#// \$cfg\['Servers'\]\[\$i\]\['AllowNoPassword'\] = TRUE;#\$cfg\['Servers'\]\[\$i\]\['AllowNoPassword'\] = TRUE;#g" /etc/phpmyadmin/config.inc.php 
-
-# mongodb config
-RUN mkdir /var/mongodb
 
 # supervisor config
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
