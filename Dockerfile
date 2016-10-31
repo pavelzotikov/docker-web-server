@@ -16,7 +16,7 @@ RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get install -y nano wget curl libapache2-mod-php5 php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache supervisor nginx apache2 mysql-server phpmyadmin memcached
+RUN apt-get install -y nano wget curl libapache2-mod-php5 php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache php5-redis supervisor nginx apache2 mysql-server phpmyadmin memcached redis-server
 
 # nginx config
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
